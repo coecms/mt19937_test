@@ -141,10 +141,10 @@ CONTAINS
       x = iand(upper_mask, mt(i)) + &
       iand(lower_mask, mt(mod(i+1, n)))
       xA = shiftr(x, 1)
-      IF (mod(x, 2) /= 0) THEN
+      IF (modulo(x, 2) /= 0) THEN
         xA = ieor(xA, a)
       END IF
-      mt(i) = ieor(xA, mt(mod(i+m, n)))
+      mt(i) = ieor(xA, mt(modulo(i+m, n)))
     END DO
     index = 0
   END SUBROUTINE twist
