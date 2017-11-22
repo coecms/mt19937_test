@@ -49,10 +49,10 @@ MODULE mt19937_mod
   ! The constants for mt19937_32
   INTEGER(int32), PARAMETER :: f = 1812433253
   INTEGER(int32), PARAMETER :: w = 32, n = 624, m = 397, r = 31
-  INTEGER(int32), PARAMETER :: a = transfer(Z'9908B0DF', 1_int32)
-  INTEGER(int32), PARAMETER :: u = 11, d = transfer(Z'FFFFFFFF', 1_int32)
-  INTEGER(int32), PARAMETER :: s = 7,  b = transfer(Z'9D2C5680', 1_int32)
-  INTEGER(int32), PARAMETER :: t = 15, c = transfer(Z'EFC60000', 1_int32)
+  INTEGER(int32), PARAMETER :: a = -1727483681
+  INTEGER(int32), PARAMETER :: u = 11, d = -1
+  INTEGER(int32), PARAMETER :: s = 7,  b = -1658038656
+  INTEGER(int32), PARAMETER :: t = 15, c = -272236544
   INTEGER(int32), PARAMETER :: l = 18
   PRIVATE :: f, w, n, m, r, a, u, d, s, b, t, c, l
 
