@@ -12,9 +12,9 @@ program test_mt
     CALL MT19937_RANDOM_SEED([1_int32])
     CALL MT19937_RANDOM_NUMBER(r)
 
-    read(u, '(F8.5)') r2
+    read(u, '(F15.12)') r2
 
-    if ( all(abs(r - r2) < 0.0001) ) then
+    if ( all(abs(r - r2) < 0.00000000001_real64) ) then
         print*, "all identical"
     else
         print*, "Failures"
