@@ -78,9 +78,10 @@ MODULE mt19937_mod
   PUBLIC :: mt19937_random_number
   PUBLIC :: mt19937_random_seed
 
-  INTEGER, PRIVATE :: my_seed(1)
+  INTEGER(kind=int32), PRIVATE :: my_seed(1)
 
   INTEGER, PARAMETER, PRIVATE :: maxint = huge(1_int32)
+  INTEGER, PARAMETER :: i32_mask = int(huge(1_int32), kind=kind(1)) ! transfer(-1_int32, 1)
 
 CONTAINS
 
@@ -168,8 +169,8 @@ CONTAINS
       anything_selected = .TRUE.
     END IF
     IF (present(put)) THEN
-      CALL mt19937_seed(put(1))
-      my_seed(1) = put(1)
+      my_seed(1) = int(iand(put(1), i32_mask), kind=int32)
+      CALL mt19937_seed(my_seed(1))
       anything_selected = .TRUE.
     END IF
     IF (present(get)) THEN
