@@ -9,7 +9,7 @@ program test_mt
         status='old')
     if (ios /= 0) stop "FAILED TO OPEN data.txt"
 
-    CALL MT19937_RANDOM_SEED([1_int32])
+    CALL MT19937_RANDOM_SEED([1])
     CALL MT19937_RANDOM_NUMBER(r)
 
     read(u, '(F15.12)') r2
